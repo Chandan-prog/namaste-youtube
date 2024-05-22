@@ -1,15 +1,26 @@
+import { useDispatch } from "react-redux";
+import store from "../utils/store";
+import { toggleMenu } from "../utils/appSlice";
 export default function Header() {
+
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  }
+
   return (
     <>
       <div className="grid grid-flow-col p-5 shadow-lg">
         <div className="col-span-1 flex ">
-          <div className="mx-2">
+          
+          <div className="mx-2 cursor-pointer" onClick={toggleMenuHandler}>
             <img
               className="h-8"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAOVBMVEX///8AAACOjo7CwsItLS3c3Nw/Pz/6+vrGxsaSkpKZmZmIiIjy8vK+vr7w8PA4ODgfHx+3t7fi4uKY3kT7AAAAzklEQVR4nO3byQ3CQAxA0TGQDQhZ+i+WHCiAi2UU3uvga6Q52HJrAAAAAAAAAAAAAAAAAAAAAAA/4N7fKvX37MBHVHskF1b3HXIDn9V5h2du4lrdF2tuYOuqA6NLLmzDeK00DtmBAAAAAAB8dNOl0pQ+8p6rh/oxJxdW90X2du1VnXd45SZW50X2G7atui+25MLz/6UAAAAAAHyc/t5irx7qx55cuFQHxpIb+Ae3a9V5kb5dO/8N6fnvgAEAAAAAAAAAAAAAAAAAAAAAvvEGU4ASPASDdpgAAAAASUVORK5CYII="
               alt="hamburger-image"
             />
           </div>
+        
           <div className="mx-2">
             <img
               className="h-8"
